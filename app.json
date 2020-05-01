@@ -1,0 +1,17 @@
+{
+  "name": "react-native-ts-base",
+  "displayName": "react-native-ts-base",
+  "expo": {
+    "name": "react-native-ts-base",
+    "slug": "react-native-ts-base",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
