@@ -60,3 +60,17 @@ buck-out/
 
 # Expo
 .expo/*
+
+# Git conflit files
+*.orig
+
+# SQlite files
+*.sqlite
+*.sqlite-journal
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
