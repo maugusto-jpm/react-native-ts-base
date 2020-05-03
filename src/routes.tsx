@@ -12,7 +12,7 @@ export default function Routes() {
   return (
     <NavigationContainer>
       <StackNavigator.Navigator initialRouteName="Main" screenOptions={defaultNavigationOptions}>
-        <StackNavigator.Screen options={{ title: 'Initial page' }} name="Main" component={Main} />
+        <StackNavigator.Screen options={{ title: 'Página inicial' }} name="Main" component={Main} />
         <StackNavigator.Screen name="PhotoDetails" component={PhotoDetails} />
       </StackNavigator.Navigator>
     </NavigationContainer>

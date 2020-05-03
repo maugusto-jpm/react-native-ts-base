@@ -32,6 +32,8 @@ export default StyleSheet.create({
     fontSize: 16,
     color: '#DA552F',
     fontWeight: 'bold',
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   thumbnail: {
     margin: 5,

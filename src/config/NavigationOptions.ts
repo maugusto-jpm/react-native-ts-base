@@ -8,5 +8,6 @@ export default {
   headerTitleStyle: {
     marginLeft: 'auto',
     marginRight: 'auto',
+    flexWrap: 'wrap',
   },
 } as StackNavigationOptions;

@@ -72,7 +72,7 @@ export default class Main extends Component {
         <FlatList
           contentContainerStyle={styles.list}
           data={this.state.photos}
-          keyExtractor={item => item.id.toString()}
+          keyExtractor={photo => photo.id.toString()}
           renderItem={this.renderListItem}
           onEndReached={this.loadMore}
           onEndReachedThreshold={0.3}
