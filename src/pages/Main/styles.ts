@@ -6,10 +6,21 @@ export default StyleSheet.create({
     backgroundColor: '#FAFAFA',
     padding: 10,
   },
-  title: {
+  list: {
+    padding: 10,
+  },
+  photoTitle: {
     fontSize: 20,
   },
-  link: {
+  photoListContainer: {
+    backgroundColor: '#FFF',
+    borderWidth: 1,
+    borderColor: '#DDD',
+    borderRadius: 5,
+    padding: 20,
+    marginBottom: 10,
+  },
+  photoLink: {
     backgroundColor: '#FFF',
     borderWidth: 1,
     borderColor: '#DDD',
@@ -17,9 +28,13 @@ export default StyleSheet.create({
     padding: 20,
     margin: 10,
   },
-  linkText: {
+  photoLinkText: {
     fontSize: 16,
     color: '#DA552F',
     fontWeight: 'bold',
+  },
+  thumbnail: {
+    margin: 5,
+    height: 200,
   },
 });
