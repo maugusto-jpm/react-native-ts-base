@@ -20,14 +20,14 @@ export default class Main extends Component {
     pageSize: 20,
   };
 
-  navigate(...args: any) {
-    // @ts-ignore
-    return this.props.navigation.navigate(...args);
-  }
-
   componentDidMount() {
     this.loadProducts();
   }
+
+  navigate = (...args: any) => {
+    // @ts-ignore
+    return this.props.navigation.navigate(...args);
+  };
 
   loadProducts = async (page: number = 1) => {
     const response = await api.get('/photos', {
@@ -38,7 +38,6 @@ export default class Main extends Component {
     });
 
     const { data: photos }: { data: Photo[] } = response;
-    console.log(photos);
 
     this.setState({
       photos: [...this.state.photos, ...photos],
@@ -47,11 +46,11 @@ export default class Main extends Component {
     });
   };
 
-  loadMore = () => {
+  loadMore = async () => {
     const { pageNumber, endAchieved } = this.state;
     if (endAchieved) return;
 
-    this.loadProducts(pageNumber + 1);
+    await this.loadProducts(pageNumber + 1);
   };
 
   renderListItem = ({ item: photo }: { item: Photo }) => (

@@ -74,3 +74,5 @@ buck-out/
 !.vscode/tasks.json
 !.vscode/launch.json
 
+# Test runner
+.jest
