@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RouteProp } from '@react-navigation/native';
 import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native';
 
 import styles from './styles';
-import { Photo } from '../../types';
+import { RootStackParamList, Photo } from '../../types';
 import api from '../../services/api';
+
+type NavigationProps = {
+  navigation: StackNavigationProp<RootStackParamList>;
+  route: RouteProp<RootStackParamList, 'Main'>;
+};
+
+export type Props = undefined;
 
 interface State {
   photos: Photo[];
@@ -12,8 +21,8 @@ interface State {
   pageSize: number;
 }
 
-export default class Main extends Component {
-  state: State = {
+export default class Main extends Component<NavigationProps, State> {
+  state: Readonly<State> = {
     photos: [],
     endAchieved: false,
     pageNumber: 1,
@@ -23,11 +32,6 @@ export default class Main extends Component {
   componentDidMount() {
     this.loadProducts();
   }
-
-  navigate = (...args: any) => {
-    // @ts-ignore
-    return this.props.navigation.navigate(...args);
-  };
 
   loadProducts = async (page: number = 1) => {
     const response = await api.get('/photos', {
@@ -41,7 +45,7 @@ export default class Main extends Component {
 
     this.setState({
       photos: [...this.state.photos, ...photos],
-      endReached: photos.length < this.state.pageSize,
+      endAchieved: photos.length < this.state.pageSize,
       pageNumber: page,
     });
   };
@@ -59,7 +63,7 @@ export default class Main extends Component {
       <Image source={{ uri: photo.thumbnailUrl }} style={styles.thumbnail} />
       <TouchableOpacity
         style={styles.photoLink}
-        onPress={() => this.navigate('PhotoDetails', { photo })}>
+        onPress={() => this.props.navigation.navigate('PhotoDetails', { photo })}>
         <Text style={styles.photoLinkText}>Acessar</Text>
       </TouchableOpacity>
     </View>

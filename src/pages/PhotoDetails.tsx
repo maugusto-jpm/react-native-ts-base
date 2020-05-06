@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RouteProp } from '@react-navigation/native';
 import WebView from 'react-native-webview';
 
-import { Photo } from '../types';
+import { RootStackParamList, Photo } from '../types';
 
-interface State {
+type NavigationProps = {
+  navigation: StackNavigationProp<RootStackParamList>;
+  route: RouteProp<RootStackParamList, 'PhotoDetails'>;
+};
+
+export type Props = {
   photo: Photo;
-}
+};
 
-export default class PhotoDetails extends Component {
-  state: State = {
-    // @ts-ignore
-    photo: this.props.route.params.photo,
-  };
-
+export default class PhotoDetails extends Component<NavigationProps> {
   componentDidMount() {
-    // @ts-ignore
     this.props.navigation.setOptions({
-      title: this.state.photo.title,
+      title: this.props.route.params.photo.title,
       headerTitleStyle: {
         width: '60%',
       },
@@ -24,6 +25,6 @@ export default class PhotoDetails extends Component {
   }
 
   render() {
-    return <WebView source={{ uri: this.state.photo.url }} />;
+    return <WebView source={{ uri: this.props.route.params.photo.url }} />;
   }
 }
