@@ -30,10 +30,10 @@ export default class Main extends Component<NavigationProps, State> {
   };
 
   componentDidMount() {
-    this.loadProducts();
+    this.loadPhotos();
   }
 
-  loadProducts = async (page: number = 1) => {
+  loadPhotos = async (page: number = 1) => {
     const response = await api.get('/photos', {
       params: {
         _limit: this.state.pageSize,
@@ -54,7 +54,7 @@ export default class Main extends Component<NavigationProps, State> {
     const { pageNumber, endAchieved } = this.state;
     if (endAchieved) return;
 
-    await this.loadProducts(pageNumber + 1);
+    await this.loadPhotos(pageNumber + 1);
   };
 
   renderListItem = ({ item: photo }: { item: Photo }) => (

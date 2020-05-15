@@ -5,7 +5,7 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   ignorePatterns: ['android/', 'ios/', '.expo/', 'build/', 'logs/', 'buck-out/'],
   rules: {
-    curly: ['error', 'multi'],
+    curly: 'off',
     'max-len': ['error', 100, 2, {
       ignoreUrls: true,
       ignoreComments: true,
